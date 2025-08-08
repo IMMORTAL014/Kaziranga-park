@@ -1,0 +1,761 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaziranga National Park | UNESCO World Heritage Site</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a5d1a;
+            --secondary: #2d8c2d;
+            --accent: #e67e22;
+            --light: #f8f9fa;
+            --dark: #2c3e50;
+            --text: #333;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #f5f7f5;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://placehold.co/1920x600/1a5d1a/ffffff?text=Kaziranga+National+Park') center/cover no-repeat;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgba(26, 93, 26, 0.9);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+            color: var(--accent);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-item {
+            margin-left: 30px;
+        }
+        
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: var(--transition);
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--accent);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--accent);
+            transition: var(--transition);
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .header-content {
+            max-width: 800px;
+            padding: 20px;
+        }
+        
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        
+        .header-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: var(--transition);
+            margin: 10px;
+            box-shadow: 0 4px 15px rgba(230, 126, 34, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #d35400;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(230, 126, 34, 0.4);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+        
+        .about-img img:hover {
+            transform: scale(1.05);
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* Wildlife Section */
+        .wildlife {
+            padding: 100px 0;
+            background-color: #f8f9fa;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: var(--transition);
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .card:hover .card-img img {
+            transform: scale(1.1);
+        }
+        
+        .card-content {
+            padding: 25px;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        .card-text {
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .badge {
+            display: inline-block;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            height: 250px;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 93, 26, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+        
+        .gallery-overlay i {
+            color: white;
+            font-size: 2rem;
+        }
+        
+        /* Visit Section */
+        .visit {
+            padding: 100px 0;
+            background: linear-gradient(rgba(26, 93, 26, 0.9), rgba(26, 93, 26, 0.9)), url('https://placehold.co/1920x800/2d8c2d/ffffff?text=Plan+Your+Visit') center/cover no-repeat;
+            color: white;
+            text-align: center;
+        }
+        
+        .visit-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .visit-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .info-item {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .info-item i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--accent);
+        }
+        
+        .info-item h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .footer-col p {
+            margin-bottom: 20px;
+            color: #bbb;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: white;
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+        
+        .social-links a:hover {
+            background-color: var(--accent);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent);
+            padding-left: 5px;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bbb;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .about-img, .about-text {
+                flex: none;
+                width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .header-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                display: block;
+                margin: 10px auto;
+                width: 80%;
+            }
+            
+            .visit-info {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="container navbar-container">
+                <a href="#" class="logo">
+                    <i class="fas fa-tree"></i>
+                    Kaziranga
+                </a>
+                <ul class="nav-menu">
+                    <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="#wildlife" class="nav-link">Wildlife</a></li>
+                    <li class="nav-item"><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li class="nav-item"><a href="#visit" class="nav-link">Visit</a></li>
+                </ul>
+            </div>
+        </nav>
+        
+        <div class="header-content">
+            <h1>Kaziranga National Park</h1>
+            <p class="header-subtitle">A UNESCO World Heritage Site and home to two-thirds of the world's great one-horned rhinoceroses</p>
+            <a href="#visit" class="btn">Plan Your Visit</a>
+            <a href="#wildlife" class="btn btn-outline">Explore Wildlife</a>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Kaziranga</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="https://st.adda247.com/https://s3-ap-south-1.amazonaws.com/adda247jobs-wp-assets-adda247/articles/wp-content/uploads/2023/03/23133051/kaziranga-national-park.jpg" alt="Kaziranga National Park">
+                </div>
+                <div class="about-text">
+                    <h3>A Sanctuary of Extraordinary Biodiversity</h3>
+                    <p>Kaziranga National Park, located in the Golaghat and Nagaon districts of Assam, India, is a World Heritage Site celebrated for providing <span class="highlight">critical and final habitat</span> for the endangered great one-horned rhinoceros.</p>
+                    <p>Established in 1908, the park spans an area of 430 square kilometers and is characterized by tall elephant grass, dense tropical moist broadleaf forests, pure stands of canebrakes, and numerous <span class="highlight">swampy lagoons</span>.</p>
+                    <p>Recognized as an Important Bird Area by BirdLife International, Kaziranga hosts <span class="highlight">significant breeding populations</span> of the critically endangered Bengal florican, as well as the only known population of the wild water buffalo in the world.</p>
+                    <a href="#visit" class="btn">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Wildlife Section -->
+    <section id="wildlife" class="wildlife">
+        <div class="container">
+            <h2 class="section-title">Iconic Wildlife</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://wildusk.com/wp-content/uploads/2020/07/Kaziranga-Tiger-Reserve-768x512.jpg" alt="One-Horned Rhinoceros">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Great One-Horned Rhinoceros</h3>
+                        <span class="badge">Flagship Species</span>
+                        <p class="card-text">Kaziranga is home to over 2,400 one-horned rhinoceroses, representing about two-thirds of the world's total population of this magnificent species.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://tse1.mm.bing.net/th/id/OIP.G6ChD67f_Xgyqwe2sTdRcwHaE8?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Royal Bengal Tiger">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Royal Bengal Tiger</h3>
+                        <span class="badge">Apex Predator</span>
+                        <p class="card-text">With one of the highest density of tigers among protected areas in the world, Kaziranga is an important Tiger Reserve with approximately 100 tigers.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-img">
+                        <img src="https://cdn.britannica.com/63/145563-050-5E0EC254/water-buffalo.jpg" alt="Wild Water Buffalo">
+                    </div>
+                    <div class="card-content">
+                        <h3 class="card-title">Wild Water Buffalo</h3>
+                        <span class="badge">Endangered</span>
+                        <p class="card-text">Kaziranga hosts the largest population of wild water buffalo in the world, with over 3,500 individuals representing about 57% of the global population.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.wJsrWCLmLi-YmZioYnaKSAHaE7?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Kaziranga Landscape">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://c8.alamy.com/comp/2T4NHW2/elephant-grass-kaziranga-national-park-unesco-world-heritage-site-assam-india-2T4NHW2.jpg" alt="Elephant Grass">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://tse2.mm.bing.net/th/id/OIP.rMYQrtxgjuEsARd0hPqWqAHaEM?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3" alt="Rhino Family">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://bigcatsindia.com/wp-content/uploads/2025/01/birds-of-kaziranga-national-park.webp" alt="Bird Sanctuary">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://thumbs.dreamstime.com/b/one-most-sought-wildlife-holiday-destinations-india-kaziranga-national-park-s-square-kilometer-area-sprinkled-322354044.jpg" alt="Swamp Area">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://c8.alamy.com/comp/2GYMPRH/tiger-footprints-in-kaziranga-national-park-india-2GYMPRH.jpg" alt="Tiger Footprint">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://i.pinimg.com/originals/35/83/c0/3583c023cc3be12760deee7776372b4b.jpg" alt="Deer Herd">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://media.istockphoto.com/id/1165875239/photo/sunset-at-kaziranga-national-park-assam-india.jpg?s=170667a&w=0&k=20&c=kUT-EAH5ugw4SCppwUSAtXZJwxCIYMqQ3DTernjCWRs=" alt="Sunset View">
+                    <div class="gallery-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visit Section -->
+    <section id="visit" class="visit">
+        <div class="container visit-container">
+            <h2 class="section-title" style="color: white;">Plan Your Visit</h2>
+            <p>Experience the wilderness of Kaziranga National Park with guided tours, safaris, and eco-friendly accommodations.</p>
+            
+            <div class="visit-info">
+                <div class="info-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Best Time to Visit</h3>
+                    <p>November to April</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <h3>Opening Hours</h3>
+                    <p>5:30 AM - 4:30 PM</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-ticket-alt"></i>
+                    <h3>Entry Fee</h3>
+                    <p>₹50-200 (varies)</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>Assam, India</p>
+                </div>
+            </div>
+            
+            <a href="#" class="btn">Book Safari</a>
+            <a href="#" class="btn btn-outline">Download Guide</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h4>Kaziranga NP</h4>
+                    <p>A UNESCO World Heritage Site protecting the world's largest population of one-horned rhinoceroses and other endangered species in the floodplain of the Brahmaputra River.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About the Park</a></li>
+                        <li><a href="#wildlife">Wildlife</a></li>
+                        <li><a href="#gallery">Photo Gallery</a></li>
+                        <li><a href="#visit">Plan Your Visit</a></li>
+                        <li><a href="#">Conservation Efforts</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Visitor Info</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Safari Booking</a></li>
+                        <li><a href="#">Accommodations</a></li>
+                        <li><a href="#">Park Rules</a></li>
+                        <li><a href="#">Safety Guidelines</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact</h4>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Golaghat & Nagaon, Assam</li>
+                        <li><i class="fas fa-phone"></i> +91 XXXX-XXXXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@kaziranga.gov.in</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Kaziranga National Park. All Rights Reserved. | Designed with <i class="fas fa-heart" style="color: var(--accent);"></i> for nature conservation</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+```
